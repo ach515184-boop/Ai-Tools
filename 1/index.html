@@ -1,0 +1,1852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Tools Hub – Discover the Best Artificial Intelligence Tools</title>
+<meta name="description" content="Explore AI Tools Hub to discover useful artificial intelligence tools for writing, image generation, video creation, coding, productivity, and more." />
+<meta name="keywords" content="AI tools, artificial intelligence, ChatGPT, image generators, AI writing, AI coding" />
+<meta name="author" content="AI Tools Hub" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="AI Tools Hub – Discover the Best Artificial Intelligence Tools" />
+<meta property="og:description" content="Explore a growing collection of powerful AI tools designed to help you write, design, create videos, generate images, and improve productivity." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://aitoolshub.example.com" />
+
+<!-- Fontsource Inter -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.0/index.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/space-grotesk@5.0.0/index.css" />
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+<style>
+/* ============ RESET & BASE ============ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-primary: #0B1020;
+  --bg-secondary: #11182B;
+  --bg-card: #161F35;
+  --accent-primary: #8B5CF6;
+  --accent-secondary: #06B6D4;
+  --accent-highlight: #A78BFA;
+  --text-main: #FFFFFF;
+  --text-secondary: #A7B0C0;
+  --border: #27334B;
+  --gradient-main: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%);
+  --gradient-soft: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(6,182,212,0.15));
+  --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.25);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 { font-family: 'Space Grotesk', 'Inter', sans-serif; font-weight: 700; line-height: 1.2; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.gradient-text {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ============ BACKGROUND GLOW ============ */
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.bg-glow::before, .bg-glow::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.35;
+}
+.bg-glow::before {
+  width: 500px; height: 500px;
+  background: #8B5CF6;
+  top: -150px; left: -150px;
+  animation: floatGlow 18s ease-in-out infinite;
+}
+.bg-glow::after {
+  width: 600px; height: 600px;
+  background: #06B6D4;
+  bottom: -200px; right: -200px;
+  animation: floatGlow 22s ease-in-out infinite reverse;
+}
+@keyframes floatGlow {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(80px, 60px) scale(1.1); }
+}
+
+/* ============ NAVBAR ============ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11, 16, 32, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  gap: 24px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text-main);
+  flex-shrink: 0;
+}
+.logo-icon {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: var(--gradient-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(139,92,246,0.4);
+  position: relative;
+  overflow: hidden;
+}
+.logo-icon svg { width: 22px; height: 22px; }
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.nav-links a {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.25s ease;
+  position: relative;
+}
+.nav-links a:hover { color: var(--text-main); background: rgba(139,92,246,0.08); }
+.nav-links a.active { color: var(--text-main); }
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px; left: 50%;
+  transform: translateX(-50%);
+  width: 20px; height: 2px;
+  background: var(--gradient-main);
+  border-radius: 2px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.icon-btn {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  transition: all 0.25s ease;
+}
+.icon-btn:hover { color: var(--text-main); border-color: var(--accent-primary); background: rgba(139,92,246,0.1); }
+
+.btn-primary {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: var(--gradient-main);
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(139,92,246,0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(139,92,246,0.5); }
+
+.btn-secondary {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-secondary:hover { border-color: var(--accent-primary); background: rgba(139,92,246,0.08); transform: translateY(-2px); }
+
+.hamburger {
+  display: none;
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.hamburger span {
+  width: 20px; height: 2px;
+  background: var(--text-main);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ============ HERO ============ */
+.hero {
+  position: relative;
+  padding: 80px 0 100px;
+  overflow: hidden;
+  text-align: center;
+}
+.hero-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(139,92,246,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139,92,246,0.08) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  pointer-events: none;
+}
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.particle {
+  position: absolute;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  opacity: 0.5;
+  animation: floatParticle 15s linear infinite;
+}
+.particle:nth-child(2n) { background: var(--accent-secondary); }
+.particle:nth-child(3n) { background: var(--accent-highlight); width: 4px; height: 4px; }
+@keyframes floatParticle {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(-100px) translateX(50px); opacity: 0; }
+}
+
+.hero-content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  background: rgba(139,92,246,0.1);
+  border: 1px solid rgba(139,92,246,0.3);
+  color: var(--accent-highlight);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+  animation: fadeInUp 0.8s ease;
+}
+.hero-badge i { font-size: 0.75rem; }
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  margin-bottom: 20px;
+  animation: fadeInUp 0.8s ease 0.1s both;
+  letter-spacing: -0.02em;
+}
+.hero p {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin: 0 auto 36px;
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.hero-search {
+  max-width: 640px;
+  margin: 0 auto 28px;
+  position: relative;
+  animation: fadeInUp 0.8s ease 0.3s both;
+}
+.hero-search input {
+  width: 100%;
+  padding: 18px 60px 18px 54px;
+  border-radius: 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  outline: none;
+}
+.hero-search input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 4px rgba(139,92,246,0.15);
+}
+.hero-search input::placeholder { color: var(--text-secondary); }
+.hero-search .search-icon {
+  position: absolute;
+  left: 20px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+.hero-search .clear-btn {
+  position: absolute;
+  right: 14px; top: 50%;
+  transform: translateY(-50%);
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  color: var(--text-secondary);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.hero-search .clear-btn:hover { color: var(--text-main); background: rgba(255,255,255,0.1); }
+.hero-search.has-value .clear-btn { display: flex; }
+
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+.hero-trust {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  animation: fadeInUp 0.8s ease 0.5s both;
+}
+.hero-trust i { color: var(--accent-secondary); }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============ SECTION ============ */
+section { position: relative; z-index: 1; padding: 80px 0; }
+.section-head { text-align: center; margin-bottom: 50px; }
+.section-head .eyebrow {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 100px;
+  background: rgba(6,182,212,0.1);
+  border: 1px solid rgba(6,182,212,0.25);
+  color: var(--accent-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.section-head h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+.section-head p {
+  color: var(--text-secondary);
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 1.02rem;
+}
+
+/* ============ CATEGORIES ============ */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+}
+.category-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+  overflow: hidden;
+}
+.category-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-soft);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.category-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-primary);
+  box-shadow: 0 12px 40px rgba(139,92,246,0.15);
+}
+.category-card:hover::before { opacity: 1; }
+.category-card > * { position: relative; z-index: 1; }
+.category-icon {
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  background: var(--gradient-soft);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--accent-highlight);
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+}
+.category-card:hover .category-icon {
+  background: var(--gradient-main);
+  color: white;
+  transform: scale(1.05);
+}
+.category-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.category-card p { color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 12px; }
+.category-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--accent-secondary);
+  font-weight: 600;
+}
+
+/* ============ FILTERS ============ */
+.filters-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+.filter-chip {
+  padding: 9px 18px;
+  border-radius: 100px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.filter-chip:hover { color: var(--text-main); border-color: var(--accent-primary); }
+.filter-chip.active {
+  background: var(--gradient-main);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 16px rgba(139,92,246,0.3);
+}
+
+/* ============ TOOLS GRID ============ */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+}
+.tool-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 24px;
+  transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.tool-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-primary);
+  box-shadow: 0 16px 48px rgba(139,92,246,0.18);
+}
+.tool-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.tool-logo {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: white;
+  font-weight: 700;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+.fav-btn {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+.fav-btn:hover { color: #f87171; border-color: #f87171; background: rgba(248,113,113,0.1); }
+.fav-btn.active { color: #f87171; background: rgba(248,113,113,0.15); border-color: #f87171; }
+
+.tool-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(139,92,246,0.12);
+  color: var(--accent-highlight);
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.tool-card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+.tool-card .desc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+.tool-card-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.tool-card-actions .btn-visit {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--gradient-main);
+  color: white;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.tool-card-actions .btn-visit:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(139,92,246,0.4); }
+.tool-card-actions .btn-details {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+.tool-card-actions .btn-details:hover { color: var(--text-main); border-color: var(--accent-primary); }
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary);
+}
+.empty-state i { font-size: 3rem; margin-bottom: 16px; color: var(--accent-primary); opacity: 0.5; }
+.empty-state h3 { color: var(--text-main); margin-bottom: 8px; }
+
+/* ============ MODAL ============ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 18, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.25s ease;
+}
+.modal-overlay.active { display: flex; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.modal-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 2;
+}
+.modal-close:hover { color: var(--text-main); background: rgba(255,255,255,0.1); }
+.modal-body { padding: 32px; }
+.modal-head { display: flex; gap: 18px; align-items: center; margin-bottom: 20px; }
+.modal-head .tool-logo { width: 72px; height: 72px; font-size: 2rem; border-radius: 16px; }
+.modal-head h2 { font-size: 1.6rem; margin-bottom: 4px; }
+.modal-head .tool-badge { margin-bottom: 0; }
+
+.modal-section { margin-bottom: 22px; }
+.modal-section h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-secondary);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.modal-section p, .modal-section li { color: var(--text-secondary); font-size: 0.95rem; }
+.modal-section ul { padding-left: 0; }
+.modal-section li {
+  padding: 6px 0 6px 24px;
+  position: relative;
+}
+.modal-section li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--accent-primary);
+  font-weight: bold;
+}
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+.modal-actions .btn-primary { flex: 1; justify-content: center; min-width: 180px; }
+
+/* ============ FEATURES ============ */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.feature-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px;
+  transition: all 0.35s ease;
+  text-align: center;
+}
+.feature-card:hover { transform: translateY(-6px); border-color: var(--accent-primary); }
+.feature-icon {
+  width: 64px; height: 64px;
+  border-radius: 16px;
+  background: var(--gradient-soft);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--accent-highlight);
+  margin: 0 auto 18px;
+  transition: all 0.3s ease;
+}
+.feature-card:hover .feature-icon {
+  background: var(--gradient-main);
+  color: white;
+  transform: rotate(-6deg) scale(1.05);
+}
+.feature-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+.feature-card p { color: var(--text-secondary); font-size: 0.92rem; }
+
+/* ============ STEPS ============ */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  position: relative;
+}
+.step-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 32px 24px;
+  text-align: center;
+  position: relative;
+  transition: all 0.35s ease;
+}
+.step-card:hover { transform: translateY(-6px); border-color: var(--accent-secondary); }
+.step-num {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--gradient-main);
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  font-family: 'Space Grotesk', sans-serif;
+  box-shadow: 0 6px 20px rgba(139,92,246,0.35);
+}
+.step-card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+.step-card p { color: var(--text-secondary); font-size: 0.95rem; }
+
+/* ============ ABOUT ============ */
+.about-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.about-text h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 18px; }
+.about-text p { color: var(--text-secondary); margin-bottom: 16px; font-size: 1rem; }
+.about-visual {
+  position: relative;
+  aspect-ratio: 1;
+  max-width: 480px;
+  margin: 0 auto;
+  border-radius: 24px;
+  background: var(--gradient-soft);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.about-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 30% 30%, rgba(139,92,246,0.3), transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(6,182,212,0.3), transparent 50%);
+  animation: rotate 20s linear infinite;
+}
+@keyframes rotate { to { transform: rotate(360deg); } }
+.about-visual svg { position: relative; z-index: 1; width: 70%; height: 70%; }
+
+/* ============ CONTACT ============ */
+.contact-wrap {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 40px;
+}
+.form-group { margin-bottom: 18px; }
+.form-group label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.25s ease;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(139,92,246,0.15);
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-msg {
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-top: 16px;
+  font-size: 0.9rem;
+  display: none;
+}
+.form-msg.success {
+  display: block;
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.3);
+  color: #4ade80;
+}
+.form-msg.error {
+  display: block;
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: #f87171;
+}
+.form-note {
+  margin-top: 14px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  text-align: center;
+  font-style: italic;
+}
+
+/* ============ NEWSLETTER ============ */
+.newsletter {
+  background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(6,182,212,0.08));
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 50px 30px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.newsletter::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle, rgba(139,92,246,0.15), transparent 60%);
+  animation: rotate 30s linear infinite;
+}
+.newsletter > * { position: relative; z-index: 1; }
+.newsletter h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 12px; }
+.newsletter p { color: var(--text-secondary); margin-bottom: 28px; max-width: 540px; margin-left: auto; margin-right: auto; }
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  max-width: 460px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.newsletter-form input {
+  flex: 1;
+  min-width: 220px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.25s;
+}
+.newsletter-form input:focus { border-color: var(--accent-primary); }
+
+/* ============ FOOTER ============ */
+footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  padding: 60px 0 30px;
+  margin-top: 60px;
+  position: relative;
+  z-index: 1;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+.footer-col h4 {
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+  color: var(--text-main);
+}
+.footer-col p { color: var(--text-secondary); font-size: 0.9rem; margin-top: 14px; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-col ul li a:hover { color: var(--accent-highlight); }
+.footer-socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+.footer-socials a {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all 0.25s;
+}
+.footer-socials a:hover {
+  color: white;
+  background: var(--gradient-main);
+  border-color: transparent;
+  transform: translateY(-3px);
+}
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+.footer-bottom a { color: var(--text-secondary); transition: color 0.2s; }
+.footer-bottom a:hover { color: var(--accent-highlight); }
+
+/* ============ SCROLL ANIMATIONS ============ */
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4,0,0.2,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ============ REDUCED MOTION ============ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 960px) {
+  .about-wrap { grid-template-columns: 1fr; gap: 40px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 73px; left: 0; right: 0;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    padding: 20px;
+    gap: 4px;
+    transform: translateY(-120%);
+    transition: transform 0.35s ease;
+    max-height: calc(100vh - 73px);
+    overflow-y: auto;
+  }
+  .nav-links.open { transform: translateY(0); }
+  .nav-links a { width: 100%; padding: 12px 14px; }
+  .hamburger { display: flex; }
+  .nav-actions .btn-primary { display: none; }
+  section { padding: 60px 0; }
+  .hero { padding: 50px 0 70px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+  .contact-wrap { padding: 28px 22px; }
+  .modal-body { padding: 24px; }
+}
+@media (max-width: 480px) {
+  .hero-buttons { flex-direction: column; width: 100%; }
+  .hero-buttons .btn-primary, .hero-buttons .btn-secondary { width: 100%; justify-content: center; }
+  .newsletter-form { flex-direction: column; }
+  .newsletter-form .btn-primary { width: 100%; justify-content: center; }
+}
+
+/* ============ SCROLLBAR ============ */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-primary); }
+</style>
+</head>
+<body>
+
+<!-- Background Glow -->
+<div class="bg-glow"></div>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">
+      <span class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L3 7v10l9 5 9-5V7l-9-5z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
+          <circle cx="12" cy="12" r="3" fill="white"/>
+          <path d="M12 5v4M12 15v4M5 9l4 2M15 13l4 2M5 15l4-2M15 11l4-2" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      AI Tools Hub
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#tools">Explore Tools</a></li>
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="searchToggle" aria-label="Search"><i class="fas fa-search"></i></button>
+      <button class="icon-btn" id="themeToggle" aria-label="Theme"><i class="fas fa-moon"></i></button>
+      <a href="#tools" class="btn-primary">Explore Tools <i class="fas fa-arrow-right"></i></a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-particles" id="particles"></div>
+  <div class="container hero-content">
+    <div class="hero-badge">
+      <i class="fas fa-sparkles"></i>
+      Your Gateway to Artificial Intelligence
+    </div>
+    <h1>Discover the Best <span class="gradient-text">AI Tools</span> for Your Creativity</h1>
+    <p>Explore a growing collection of powerful AI tools designed to help you write, design, create videos, generate images, improve productivity, and achieve more with artificial intelligence.</p>
+
+    <div class="hero-search" id="heroSearch">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="heroSearchInput" placeholder="Search AI tools, categories, or features..." />
+      <button class="clear-btn" id="clearSearch" aria-label="Clear search"><i class="fas fa-times"></i></button>
+    </div>
+
+    <div class="hero-buttons">
+      <a href="#tools" class="btn-primary"><i class="fas fa-rocket"></i> Explore AI Tools</a>
+      <a href="#categories" class="btn-secondary"><i class="fas fa-th-large"></i> Browse Categories</a>
+    </div>
+
+    <div class="hero-trust">
+      <i class="fas fa-shield-halved"></i>
+      <span>Curated directory of verified AI tools and services</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATEGORIES ============ -->
+<section id="categories">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Categories</span>
+      <h2>Explore AI Tools by <span class="gradient-text">Category</span></h2>
+      <p>Find the right AI tools for your needs. Explore different categories and discover new possibilities.</p>
+    </div>
+    <div class="categories-grid reveal" id="categoriesGrid"></div>
+  </div>
+</section>
+
+<!-- ============ TOOLS ============ -->
+<section id="tools">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Featured</span>
+      <h2>Popular <span class="gradient-text">AI Tools</span></h2>
+      <p>Hand-picked collection of leading AI tools trusted by creators, developers, and professionals worldwide.</p>
+    </div>
+
+    <div class="filters-bar reveal" id="filtersBar">
+      <button class="filter-chip active" data-filter="all"><i class="fas fa-border-all"></i> All Tools</button>
+      <button class="filter-chip" data-filter="free"><i class="fas fa-gift"></i> Free</button>
+      <button class="filter-chip" data-filter="freemium"><i class="fas fa-star"></i> Freemium</button>
+      <button class="filter-chip" data-filter="paid"><i class="fas fa-crown"></i> Paid</button>
+      <button class="filter-chip" data-filter="popular"><i class="fas fa-fire"></i> Popular</button>
+      <button class="filter-chip" data-filter="favorites"><i class="fas fa-heart"></i> Favorites</button>
+    </div>
+
+    <div class="tools-grid reveal" id="toolsGrid"></div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE ============ -->
+<section id="why">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Benefits</span>
+      <h2>Why Choose <span class="gradient-text">AI Tools Hub</span>?</h2>
+      <p>A simple, organized way to explore the growing world of artificial intelligence tools.</p>
+    </div>
+    <div class="features-grid reveal">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-compass"></i></div>
+        <h3>Discover New Tools</h3>
+        <p>Explore different AI tools in one organized place.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-clock"></i></div>
+        <h3>Save Time</h3>
+        <p>Find useful solutions without searching multiple websites.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-layer-group"></i></div>
+        <h3>Explore Categories</h3>
+        <p>Discover AI tools based on your interests and needs.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+        <h3>Simple Experience</h3>
+        <p>Enjoy a clean, easy-to-use, beginner-friendly interface.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Process</span>
+      <h2>How It <span class="gradient-text">Works</span></h2>
+      <p>Three simple steps to find and use the perfect AI tool for your needs.</p>
+    </div>
+    <div class="steps-grid reveal">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Explore</h3>
+        <p>Browse different AI categories and discover what's available.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>Discover</h3>
+        <p>Find the tools that match your specific needs and goals.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>Create</h3>
+        <p>Visit the official platform and start exploring possibilities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="container">
+    <div class="about-wrap reveal">
+      <div class="about-text">
+        <span class="eyebrow" style="display:inline-block;padding:6px 14px;border-radius:100px;background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.3);color:var(--accent-highlight);font-size:0.8rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:16px;">About Us</span>
+        <h2>About <span class="gradient-text">AI Tools Hub</span></h2>
+        <p>AI Tools Hub is a technology-focused platform created to make discovering Artificial Intelligence tools easier for everyone. Our goal is to organize useful AI resources in one place so students, creators, developers, professionals, and beginners can explore the growing world of artificial intelligence.</p>
+        <p>From AI writing and image generation to video creation, coding, education, and productivity, AI Tools Hub helps visitors discover tools that support creativity, learning, and innovation.</p>
+        <p>We believe that artificial intelligence should be easier to understand, explore, and use.</p>
+      </div>
+      <div class="about-visual">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#8B5CF6"/>
+              <stop offset="100%" stop-color="#06B6D4"/>
+            </linearGradient>
+          </defs>
+          <circle cx="100" cy="100" r="30" fill="url(#g1)" opacity="0.9"/>
+          <circle cx="100" cy="100" r="50" fill="none" stroke="url(#g1)" stroke-width="1.5" opacity="0.5"/>
+          <circle cx="100" cy="100" r="70" fill="none" stroke="url(#g1)" stroke-width="1" opacity="0.3"/>
+          <circle cx="100" cy="100" r="90" fill="none" stroke="url(#g1)" stroke-width="0.8" opacity="0.2"/>
+          <g fill="url(#g1)">
+            <circle cx="100" cy="30" r="5"/>
+            <circle cx="170" cy="100" r="5"/>
+            <circle cx="100" cy="170" r="5"/>
+            <circle cx="30" cy="100" r="5"/>
+            <circle cx="150" cy="50" r="4"/>
+            <circle cx="150" cy="150" r="4"/>
+            <circle cx="50" cy="150" r="4"/>
+            <circle cx="50" cy="50" r="4"/>
+          </g>
+          <g stroke="url(#g1)" stroke-width="1" opacity="0.6">
+            <line x1="100" y1="100" x2="100" y2="30"/>
+            <line x1="100" y1="100" x2="170" y2="100"/>
+            <line x1="100" y1="100" x2="100" y2="170"/>
+            <line x1="100" y1="100" x2="30" y2="100"/>
+            <line x1="100" y1="100" x2="150" y2="50"/>
+            <line x1="100" y1="100" x2="150" y2="150"/>
+            <line x1="100" y1="100" x2="50" y2="150"/>
+            <line x1="100" y1="100" x2="50" y2="50"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Contact</span>
+      <h2>Get in <span class="gradient-text">Touch</span></h2>
+      <p>Have a question, suggestion, or an AI tool you would like us to feature? We would love to hear from you.</p>
+    </div>
+    <div class="contact-wrap reveal">
+      <form id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="cName">Full Name</label>
+          <input type="text" id="cName" placeholder="Your full name" required />
+        </div>
+        <div class="form-group">
+          <label for="cEmail">Email Address</label>
+          <input type="email" id="cEmail" placeholder="you@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="cSubject">Subject</label>
+          <input type="text" id="cSubject" placeholder="What is this about?" required />
+        </div>
+        <div class="form-group">
+          <label for="cMessage">Message</label>
+          <textarea id="cMessage" placeholder="Write your message here..." required></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
+          <i class="fas fa-paper-plane"></i> Submit Message
+        </button>
+        <div class="form-msg" id="contactMsg"></div>
+        <p class="form-note">* This is a demo form. Messages are not actually sent unless a backend or form service is connected.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section id="newsletter">
+  <div class="container">
+    <div class="newsletter reveal">
+      <h2>Stay Updated with <span class="gradient-text">AI</span></h2>
+      <p>Discover new AI tools, explore useful resources, and stay informed about the latest developments in artificial intelligence.</p>
+      <form class="newsletter-form" id="newsletterForm" novalidate>
+        <input type="email" id="nEmail" placeholder="Enter your email address" required />
+        <button type="submit" class="btn-primary"><i class="fas fa-bell"></i> Subscribe</button>
+      </form>
+      <div class="form-msg" id="newsletterMsg" style="max-width:460px;margin:16px auto 0;"></div>
+      <p class="form-note">* Demo subscription — emails are not stored unless a service is connected.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="#home" class="nav-logo">
+          <span class="logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L3 7v10l9 5 9-5V7l-9-5z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="3" fill="white"/>
+              <path d="M12 5v4M12 15v4M5 9l4 2M15 13l4 2M5 15l4-2M15 11l4-2" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </span>
+          AI Tools Hub
+        </a>
+        <p>Your gateway to discovering the best artificial intelligence tools for creativity, productivity, and innovation.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#tools">Explore Tools</a></li>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#about">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Popular Categories</h4>
+        <ul>
+          <li><a href="#tools" data-cat="AI Writing">AI Writing</a></li>
+          <li><a href="#tools" data-cat="AI Image Generator">AI Image Generation</a></li>
+          <li><a href="#tools" data-cat="AI Video">AI Video</a></li>
+          <li><a href="#tools" data-cat="AI Coding">AI Coding</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect With Us</h4>
+        <ul>
+          <li><a href="mailto:hello@aitoolshub.example.com"><i class="fas fa-envelope"></i> Email</a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+          <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+          <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 AI Tools Hub. All Rights Reserved.</span>
+      <div style="display:flex;gap:20px;">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MODAL ============ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <button class="modal-close" id="modalClose" aria-label="Close"><i class="fas fa-times"></i></button>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+/* ============ DATA ============ */
+const categories = [
+  { id: 'writing', name: 'AI Writing Tools', icon: 'fa-pen-nib', desc: 'Generate, edit, and improve written content.', count: 24 },
+  { id: 'image', name: 'AI Image Generators', icon: 'fa-image', desc: 'Create stunning visuals from text prompts.', count: 18 },
+  { id: 'video', name: 'AI Video Generators', icon: 'fa-video', desc: 'Produce and edit videos with AI assistance.', count: 12 },
+  { id: 'voice', name: 'AI Voice and Audio', icon: 'fa-microphone', desc: 'Generate speech, music, and audio content.', count: 10 },
+  { id: 'coding', name: 'AI Coding Assistants', icon: 'fa-code', desc: 'Write, debug, and understand code faster.', count: 15 },
+  { id: 'productivity', name: 'AI Productivity Tools', icon: 'fa-bolt', desc: 'Automate tasks and boost your workflow.', count: 20 },
+  { id: 'chatbot', name: 'AI Chatbots', icon: 'fa-comments', desc: 'Conversational AI for assistance and research.', count: 14 },
+  { id: 'presentation', name: 'AI Presentation Tools', icon: 'fa-presentation-screen', desc: 'Create beautiful slides and decks with AI.', count: 8 },
+  { id: 'education', name: 'AI Education Tools', icon: 'fa-graduation-cap', desc: 'Learn and teach with AI-powered platforms.', count: 16 },
+  { id: 'business', name: 'AI Business Tools', icon: 'fa-briefcase', desc: 'Grow your business with intelligent automation.', count: 22 },
+  { id: 'design', name: 'AI Design Tools', icon: 'fa-palette', desc: 'Design graphics, UI, and visuals effortlessly.', count: 13 },
+  { id: 'marketing', name: 'AI Marketing Tools', icon: 'fa-bullhorn', desc: 'Optimize campaigns and content with AI.', count: 17 }
+];
+
+const tools = [
+  {
+    id: 'chatgpt', name: 'ChatGPT', category: 'AI Chatbot', catId: 'chatbot',
+    desc: 'An AI assistant that can help with writing, learning, brainstorming, and problem-solving.',
+    url: 'https://chatgpt.com', color: '#10A37F', letter: 'G', icon: 'fa-comment-dots',
+    pricing: 'freemium', popular: true,
+    features: ['Conversational AI assistant', 'Writing and brainstorming support', 'Code generation and explanation', 'Image understanding (GPT-4 Vision)'],
+    usecases: ['Student learning and research', 'Content drafting and editing', 'Coding help and debugging', 'General Q&A and brainstorming'],
+    advantages: ['Versatile across many tasks', 'Strong conversational abilities', 'Continuously updated models'],
+    limitations: ['Free tier has usage limits', 'Can occasionally produce inaccurate answers', 'Requires internet connection']
+  },
+  {
+    id: 'gemini', name: 'Google Gemini', category: 'AI Chatbot', catId: 'chatbot',
+    desc: "Google's AI assistant for research, writing, learning, and creative tasks.",
+    url: 'https://gemini.google.com', color: '#4285F4', letter: 'G', icon: 'fa-sparkles',
+    pricing: 'freemium', popular: true,
+    features: ['Multi-modal AI (text, image, code)', 'Integration with Google services', 'Research and summarization', 'Creative content generation'],
+    usecases: ['Research and information lookup', 'Writing and editing', 'Learning new topics', 'Creative brainstorming'],
+    advantages: ['Strong integration with Google ecosystem', 'Multi-modal capabilities', 'Up-to-date information access'],
+    limitations: ['Availability varies by region', 'Advanced features require subscription', 'Responses can vary in quality']
+  },
+  {
+    id: 'claude', name: 'Claude', category: 'AI Writing', catId: 'writing',
+    desc: 'An AI assistant designed for writing, analysis, coding, and other tasks.',
+    url: 'https://claude.ai', color: '#D97757', letter: 'C', icon: 'fa-feather',
+    pricing: 'freemium', popular: true,
+    features: ['Long-form writing and analysis', 'Code generation and review', 'Document summarization', 'Thoughtful, nuanced responses'],
+    usecases: ['Long-form writing projects', 'Research analysis', 'Coding assistance', 'Professional document drafting'],
+    advantages: ['Excellent at nuanced writing', 'Handles long documents well', 'Thoughtful and careful responses'],
+    limitations: ['Free tier has message limits', 'No image generation', 'Can be more conservative in responses']
+  },
+  {
+    id: 'canva', name: 'Canva', category: 'AI Design', catId: 'design',
+    desc: 'A creative design platform with AI-powered features for creating graphics and visual content.',
+    url: 'https://www.canva.com', color: '#00C4CC', letter: 'C', icon: 'fa-paintbrush',
+    pricing: 'freemium', popular: true,
+    features: ['AI image generation (Magic Media)', 'Magic Write for text', 'Background remover', 'Thousands of templates'],
+    usecases: ['Social media graphics', 'Presentations and posters', 'Marketing materials', 'Quick visual content'],
+    advantages: ['Very beginner-friendly', 'Huge template library', 'AI features integrated smoothly'],
+    limitations: ['Best AI features require Pro plan', 'Not for advanced professional design', 'Some templates feel generic']
+  },
+  {
+    id: 'leonardo', name: 'Leonardo AI', category: 'AI Image Generator', catId: 'image',
+    desc: 'An AI-powered platform for generating creative images and visual assets.',
+    url: 'https://leonardo.ai', color: '#7C3AED', letter: 'L', icon: 'fa-wand-magic-sparkles',
+    pricing: 'freemium', popular: true,
+    features: ['High-quality image generation', 'Multiple art styles and models', 'Image-to-image transformation', 'Real-time canvas editing'],
+    usecases: ['Concept art and illustrations', 'Game assets and characters', 'Marketing visuals', 'Creative exploration'],
+    advantages: ['Excellent image quality', 'Many style options', 'Generous free daily tokens'],
+    limitations: ['Learning curve for advanced features', 'Token system can limit usage', 'Commercial use terms vary']
+  },
+  {
+    id: 'runway', name: 'Runway', category: 'AI Video', catId: 'video',
+    desc: 'A creative platform offering AI-powered video generation and editing tools.',
+    url: 'https://runwayml.com', color: '#00D1FF', letter: 'R', icon: 'fa-film',
+    pricing: 'freemium', popular: true,
+    features: ['Gen-2 and Gen-3 video generation', 'Text-to-video and image-to-video', 'Video editing with AI', 'Green screen and inpainting'],
+    usecases: ['Short video creation', 'Creative video experiments', 'Marketing video content', 'Visual storytelling'],
+    advantages: ['Industry-leading video AI', 'Professional-grade tools', 'Constantly improving models'],
+    limitations: ['Video generation is credit-based', 'Render times can be long', 'Results can be unpredictable']
+  },
+  {
+    id: 'elevenlabs', name: 'ElevenLabs', category: 'AI Voice', catId: 'voice',
+    desc: 'An AI voice platform for speech generation and audio applications.',
+    url: 'https://elevenlabs.io', color: '#1DB954', letter: 'E', icon: 'fa-volume-high',
+    pricing: 'freemium', popular: false,
+    features: ['Realistic text-to-speech', 'Voice cloning capabilities', 'Multiple languages supported', 'High-quality audio output'],
+    usecases: ['Voiceovers and narration', 'Audiobook creation', 'Content for videos', 'Accessibility applications'],
+    advantages: ['Very natural sounding voices', 'Many voice options', 'Easy-to-use interface'],
+    limitations: ['Free tier has character limits', 'Voice cloning has ethical guidelines', 'Commercial use requires proper plan']
+  },
+  {
+    id: 'copilot', name: 'GitHub Copilot', category: 'AI Coding', catId: 'coding',
+    desc: 'An AI coding assistant that helps developers write and understand code.',
+    url: 'https://github.com/features/copilot', color: '#000000', letter: 'G', icon: 'fa-laptop-code',
+    pricing: 'paid', popular: true,
+    features: ['Inline code suggestions', 'Multi-language support', 'Chat-based coding help', 'IDE integration'],
+    usecases: ['Writing code faster', 'Learning new languages', 'Debugging assistance', 'Boilerplate generation'],
+    advantages: ['Seamless IDE integration', 'Strong code suggestions', 'Supports many languages'],
+    limitations: ['Paid subscription required', 'Suggestions not always accurate', 'Requires internet connection']
+  },
+  {
+    id: 'perplexity', name: 'Perplexity', category: 'AI Research', catId: 'chatbot',
+    desc: 'An AI-powered search and answer engine for exploring information.',
+    url: 'https://www.perplexity.ai', color: '#20808D', letter: 'P', icon: 'fa-magnifying-glass',
+    pricing: 'freemium', popular: true,
+    features: ['AI-powered search answers', 'Source citations included', 'Follow-up questions', 'Real-time web information'],
+    usecases: ['Research and fact-checking', 'Quick information lookup', 'Learning new topics', 'Academic research starting point'],
+    advantages: ['Citations with every answer', 'Up-to-date web information', 'Clean, focused interface'],
+    limitations: ['Pro features require subscription', 'Answers need verification', 'Limited for very specialized topics']
+  },
+  {
+    id: 'gamma', name: 'Gamma', category: 'AI Presentations', catId: 'presentation',
+    desc: 'A platform for creating presentations and visual documents with AI assistance.',
+    url: 'https://gamma.app', color: '#8B5CF6', letter: 'G', icon: 'fa-presentation-screen',
+    pricing: 'freemium', popular: false,
+    features: ['AI-generated presentations', 'Beautiful templates', 'One-click redesign', 'Embed rich media'],
+    usecases: ['Business presentations', 'Class projects and reports', 'Pitch decks', 'Visual documents'],
+    advantages: ['Fast presentation creation', 'Modern, clean designs', 'Easy to edit and share'],
+    limitations: ['Free tier has credit limits', 'Limited advanced customization', 'Export options vary by plan']
+  },
+  {
+    id: 'grammarly', name: 'Grammarly', category: 'AI Writing', catId: 'writing',
+    desc: 'A writing assistant that helps improve grammar, clarity, and communication.',
+    url: 'https://www.grammarly.com', color: '#15C39A', letter: 'G', icon: 'fa-spell-check',
+    pricing: 'freemium', popular: true,
+    features: ['Grammar and spelling checks', 'Tone detection', 'Style suggestions', 'Plagiarism detection (Premium)'],
+    usecases: ['Email and message writing', 'Academic papers', 'Professional documents', 'Social media posts'],
+    advantages: ['Works across many platforms', 'Catches subtle errors', 'Improves writing over time'],
+    limitations: ['Best features need Premium', 'Can be overly strict sometimes', 'Not a substitute for human editing']
+  },
+  {
+    id: 'firefly', name: 'Adobe Firefly', category: 'AI Image Generator', catId: 'image',
+    desc: "Adobe's generative AI tools for creating and editing visual content.",
+    url: 'https://firefly.adobe.com', color: '#EB1000', letter: 'A', icon: 'fa-fire',
+    pricing: 'freemium', popular: true,
+    features: ['Text-to-image generation', 'Generative fill and expand', 'Text effects', 'Commercially safe training data'],
+    usecases: ['Creative image generation', 'Photo editing enhancements', 'Marketing visuals', 'Design exploration'],
+    advantages: ['Trained on licensed content', 'Integrated with Adobe apps', 'High-quality outputs'],
+    limitations: ['Generative credits are limited', 'Some styles less flexible', 'Full power requires Creative Cloud']
+  }
+];
+
+/* ============ STATE ============ */
+let favorites = JSON.parse(localStorage.getItem('ath_favorites') || '[]');
+let currentFilter = 'all';
+let currentCategory = null;
+let currentSearch = '';
+
+/* ============ RENDER CATEGORIES ============ */
+function renderCategories() {
+  const grid = document.getElementById('categoriesGrid');
+  grid.innerHTML = categories.map(c => `
+    <div class="category-card" data-cat="${c.id}">
+      <div class="category-icon"><i class="fas ${c.icon}"></i></div>
+      <h3>${c.name}</h3>
+      <p>${c.desc}</p>
+      <span class="category-count"><i class="fas fa-cube"></i> ${c.count}+ tools</span>
+    </div>
+  `).join('');
+
+  grid.querySelectorAll('.category-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const catId = card.dataset.cat;
+      const cat = categories.find(c => c.id === catId);
+      currentCategory = cat.name;
+      currentFilter = 'all';
+      document.querySelectorAll('.filter-chip').forEach(f => f.classList.toggle('active', f.dataset.filter === 'all'));
+      document.getElementById('tools').scrollIntoView({ behavior: 'smooth' });
+      renderTools();
+    });
+  });
+}
+
+/* ============ RENDER TOOLS ============ */
+function renderTools() {
+  const grid = document.getElementById('toolsGrid');
+  let filtered = [...tools];
+
+  // Search
+  if (currentSearch) {
+    const q = currentSearch.toLowerCase();
+    filtered = filtered.filter(t =>
+      t.name.toLowerCase().includes(q) ||
+      t.category.toLowerCase().includes(q) ||
+      t.desc.toLowerCase().includes(q)
+    );
+  }
+
+  // Category
+  if (currentCategory) {
+    filtered = filtered.filter(t => t.category === currentCategory);
+  }
+
+  // Filter
+  if (currentFilter === 'free') filtered = filtered.filter(t => t.pricing === 'free');
+  else if (currentFilter === 'freemium') filtered = filtered.filter(t => t.pricing === 'freemium');
+  else if (currentFilter === 'paid') filtered = filtered.filter(t => t.pricing === 'paid');
+  else if (currentFilter === 'popular') filtered = filtered.filter(t => t.popular);
+  else if (currentFilter === 'favorites') filtered = filtered.filter(t => favorites.includes(t.id));
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-state">
+        <i class="fas fa-search"></i>
+        <h3>No tools found</h3>
+        <p>Try a different search term, category, or filter.</p>
+      </div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(t => `
+    <div class="tool-card" data-id="${t.id}">
+      <div class="tool-card-head">
+        <div class="tool-logo" style="background:${t.color}">${t.letter}</div>
+        <button class="fav-btn ${favorites.includes(t.id) ? 'active' : ''}" data-fav="${t.id}" aria-label="Favorite">
+          <i class="fas fa-heart"></i>
+        </button>
+      </div>
+      <span class="tool-badge">${t.category}</span>
+      <h3>${t.name}</h3>
+      <p class="desc">${t.desc}</p>
+      <div class="tool-card-actions">
+        <a href="${t.url}" target="_blank" rel="noopener noreferrer" class="btn-visit" onclick="event.stopPropagation()">
+          Visit Website <i class="fas fa-external-link-alt"></i>
+        </a>
+        <button class="btn-details" data-detail="${t.id}" aria-label="Details">
+          <i class="fas fa-info"></i>
+        </button>
+      </div>
+    </div>
+  `).join('');
+
+  // Favorites
+  grid.querySelectorAll('.fav-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const id = btn.dataset.fav;
+      if (favorites.includes(id)) {
+        favorites = favorites.filter(f => f !== id);
+        btn.classList.remove('active');
+      } else {
+        favorites.push(id);
+        btn.classList.add('active');
+      }
+      localStorage.setItem('ath_favorites', JSON.stringify(favorites));
+      if (currentFilter === 'favorites') renderTools();
+    });
+  });
+
+  // Details
+  grid.querySelectorAll('.btn-details').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openModal(btn.dataset.detail);
+    });
+  });
+
+  // Card click -> modal
+  grid.querySelectorAll('.tool-card').forEach(card => {
+    card.addEventListener('click', () => openModal(card.dataset.id));
+  });
+}
+
+/* ============ MODAL ============ */
+function openModal(id) {
+  const t = tools.find(x => x.id === id);
+  if (!t) return;
+  const pricingLabel = { free: 'Free', freemium: 'Freemium', paid: 'Paid' }[t.pricing];
+  document.getElementById('modalBody').innerHTML = `
+    <div class="modal-head">
+      <div class="tool-logo" style="background:${t.color}">${t.letter}</div>
+      <div>
+        <h2>${t.name}</h2>
+        <span class="tool-badge">${t.category}</span>
+      </div>
+    </div>
+    <div class="modal-section">
+      <h4>Description</h4>
+      <p>${t.desc}</p>
+    </div>
+    <div class="modal-section">
+      <h4>Main Features</h4>
+      <ul>${t.features.map(f => `<li>${f}</li>`).join('')}</ul>
+    </div>
+    <div class="modal-section">
+      <h4>Best Use Cases</h4>
+      <ul>${t.usecases.map(u => `<li>${u}</li>`).join('')}</ul>
+    </div>
+    <div class="modal-section">
+      <h4>Advantages</h4>
+      <ul>${t.advantages.map(a => `<li>${a}</li>`).join('')}</ul>
+    </div>
+    <div class="modal-section">
+      <h4>Limitations</h4>
+      <ul>${t.limitations.map(l => `<li>${l}</li>`).join('')}</ul>
+    </div>
+    <div class="modal-section">
+      <h4>Pricing</h4>
+      <p>${pricingLabel} — <em style="color:var(--text-secondary);font-size:0.88rem;">Pricing may change. Please verify on the official website.</em></p>
+    </div>
+    <div class="modal-actions">
+      <a href="${t.url}" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        <i class="fas fa-external-link-alt"></i> Visit Official Website
+      </a>
+      <button class="btn-secondary" id="modalFav">
+        <i class="fas fa-heart"></i> ${favorites.includes(t.id) ? 'Unfavorite' : 'Favorite'}
+      </button>
+    </div>
+  `;
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+  document.getElementById('modalFav').addEventListener('click', () => {
+    if (favorites.includes(t.id)) favorites = favorites.filter(f => f !== t.id);
+    else favorites.push(t.id);
+    localStorage.setItem('ath_favorites', JSON.stringify(favorites));
+    renderTools();
+    openModal(t.id);
+  });
+}
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('modalOverlay').addEventListener('click', (e) => {
+  if (e.target.id === 'modalOverlay') closeModal();
+});
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+/* ============ FILTERS ============ */
+document.querySelectorAll('.filter-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    currentFilter = chip.dataset.filter;
+    currentCategory = null;
+    renderTools();
+  });
+});
+
+/* ============ SEARCH ============ */
+const heroInput = document.getElementById('heroSearchInput');
+const heroSearchWrap = document.getElementById('heroSearch');
+heroInput.addEventListener('input', () => {
+  currentSearch = heroInput.value.trim();
+  heroSearchWrap.classList.toggle('has-value', currentSearch.length > 0);
+  currentCategory = null;
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.toggle('active', c.dataset.filter === 'all'));
+  currentFilter = 'all';
+  renderTools();
+  if (currentSearch) {
+    document.getElementById('tools').scrollIntoView({ behavior: 'smooth' });
+  }
+});
+document.getElementById('clearSearch').addEventListener('click', () => {
+  heroInput.value = '';
+  currentSearch = '';
+  heroSearchWrap.classList.remove('has-value');
+  renderTools();
+});
+document.getElementById('searchToggle').addEventListener('click', () => {
+  document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => heroInput.focus(), 500);
+});
+
+/* ============ NAV ============ */
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('open');
+  });
+});
+
+// Active link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinksAll = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY + 120;
+  sections.forEach(sec => {
+    if (y >= sec.offsetTop && y < sec.offsetTop + sec.offsetHeight) {
+      navLinksAll.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + sec.id));
+    }
+  });
+});
+
+// Footer category links
+document.querySelectorAll('[data-cat]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    currentCategory = link.dataset.cat;
+    currentFilter = 'all';
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.toggle('active', c.dataset.filter === 'all'));
+    renderTools();
+    document.getElementById('tools').scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+/* ============ THEME TOGGLE (demo) ============ */
+const themeToggle = document.getElementById('themeToggle');
+let themeMode = 'dark';
+themeToggle.addEventListener('click', () => {
+  themeMode = themeMode === 'dark' ? 'light' : 'dark';
+  themeToggle.innerHTML = themeMode === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+  // Demo: just toggle icon. Full light theme would need CSS vars swap.
+});
+
+/* ============ PARTICLES ============ */
+function createParticles() {
+  const wrap = document.getElementById('particles');
+  for (let i = 0; i < 20; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDelay = Math.random() * 15 + 's';
+    p.style.animationDuration = (10 + Math.random() * 10) + 's';
+    wrap.appendChild(p);
+  }
+}
+createParticles();
+
+/* ============ SCROLL REVEAL ============ */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ============ FORMS ============ */
+document.getElementById('contactForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const msg = document.getElementById('contactMsg');
+  const name = document.getElementById('cName').value.trim();
+  const email = document.getElementById('cEmail').value.trim();
+  const subject = document.getElementById('cSubject').value.trim();
+  const message = document.getElementById('cMessage').value.trim();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!name || !email || !subject || !message) {
+    msg.className = 'form-msg error';
+    msg.textContent = 'Please fill in all fields.';
+    return;
+  }
+  if (!emailRegex.test(email)) {
+    msg.className = 'form-msg error';
+    msg.textContent = 'Please enter a valid email address.';
+    return;
+  }
+  msg.className = 'form-msg success';
+  msg.textContent = '✓ Thank you! Your message has been received (demo).';
+  e.target.reset();
+  setTimeout(() => { msg.className = 'form-msg'; }, 5000);
+});
+
+document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const msg = document.getElementById('newsletterMsg');
+  const email = document.getElementById('nEmail').value.trim();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    msg.className = 'form-msg error';
+    msg.textContent = 'Please enter a valid email address.';
+    return;
+  }
+  msg.className = 'form-msg success';
+  msg.textContent = '✓ Subscribed successfully (demo). Thanks for joining!';
+  e.target.reset();
+  setTimeout(() => { msg.className = 'form-msg'; }, 5000);
+});
+
+/* ============ INIT ============ */
+renderCategories();
+renderTools();
+</script>
+</body>
+</html>

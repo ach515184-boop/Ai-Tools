@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Ahmed Raza - Aspiring Web Developer | MS Word Specialist | Technology Enthusiast from Pakistan" />
+<title>Ahmed Raza — Aspiring Web Developer</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-600-normal.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-700-normal.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/fonts/space-grotesk@latest/latin-700-normal.css" />
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          bg: '#080B12',
+          bg2: '#101827',
+          accent: '#3B82F6',
+          accent2: '#8B5CF6',
+          txt: '#FFFFFF',
+          txt2: '#A1A1AA'
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          display: ['"Space Grotesk"', 'Inter', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+<style>
+  * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #080B12;
+    color: #fff;
+    overflow-x: hidden;
+  }
+
+  /* ===== Preloader ===== */
+  #preloader {
+    position: fixed; inset: 0; z-index: 9999;
+    background: #080B12;
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity .6s ease, visibility .6s ease;
+  }
+  #preloader.hidden { opacity: 0; visibility: hidden; }
+  .loader-ring {
+    width: 72px; height: 72px; border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #3B82F6;
+    border-right-color: #8B5CF6;
+    animation: spin 1s linear infinite;
+    box-shadow: 0 0 30px rgba(59,130,246,.4);
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ===== Animated background ===== */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(59,130,246,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,130,246,.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+  .blob {
+    position: absolute; border-radius: 50%;
+    filter: blur(90px); opacity: .35;
+    pointer-events: none;
+    animation: float 18s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%,100% { transform: translate(0,0) scale(1); }
+    33% { transform: translate(40px,-30px) scale(1.1); }
+    66% { transform: translate(-30px,40px) scale(.95); }
+  }
+
+  /* ===== Particles ===== */
+  #particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+
+  /* ===== Gradient text ===== */
+  .grad-text {
+    background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #3B82F6 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradShift 6s ease infinite;
+  }
+  @keyframes gradShift {
+    0%,100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* ===== Glass card ===== */
+  .glass {
+    background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+    border: 1px solid rgba(255,255,255,.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .glass:hover {
+    border-color: rgba(59,130,246,.35);
+    box-shadow: 0 0 40px rgba(59,130,246,.12);
+  }
+
+  /* ===== Buttons ===== */
+  .btn-primary {
+    position: relative;
+    background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+    transition: all .35s ease;
+    box-shadow: 0 10px 30px -10px rgba(59,130,246,.6);
+  }
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px -10px rgba(139,92,246,.7);
+  }
+  .btn-primary::after {
+    content:''; position:absolute; inset:-2px; border-radius:inherit;
+    background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+    filter: blur(14px); opacity:0; transition: opacity .35s;
+    z-index:-1;
+  }
+  .btn-primary:hover::after { opacity:.6; }
+  .btn-ghost {
+    border: 1px solid rgba(255,255,255,.15);
+    transition: all .35s ease;
+  }
+  .btn-ghost:hover {
+    border-color: #3B82F6;
+    background: rgba(59,130,246,.08);
+    transform: translateY(-3px);
+  }
+
+  /* ===== Reveal animation ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1);
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: .15s; }
+  .reveal-delay-2 { transition-delay: .3s; }
+  .reveal-delay-3 { transition-delay: .45s; }
+
+  /* ===== Hero entrance ===== */
+  .hero-fade { opacity: 0; transform: translateY(30px); animation: heroIn 1s ease forwards; }
+  .hero-fade.d1 { animation-delay: .2s; }
+  .hero-fade.d2 { animation-delay: .45s; }
+  .hero-fade.d3 { animation-delay: .7s; }
+  .hero-fade.d4 { animation-delay: .95s; }
+  @keyframes heroIn { to { opacity: 1; transform: translateY(0); } }
+
+  /* ===== Typing cursor ===== */
+  .typing-cursor::after {
+    content: '|';
+    display: inline-block;
+    margin-left: 2px;
+    color: #3B82F6;
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* ===== Profile ring ===== */
+  .profile-wrap {
+    position: relative;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+  }
+  .profile-wrap::before {
+    content: '';
+    position: absolute; inset: -4px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, #3B82F6, #8B5CF6, #3B82F6);
+    animation: spin 6s linear infinite;
+    filter: blur(2px);
+  }
+  .profile-wrap::after {
+    content: '';
+    position: absolute; inset: -20px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, #3B82F6, #8B5CF6, #3B82F6);
+    filter: blur(30px);
+    opacity: .4;
+    z-index: -1;
+    animation: spin 8s linear infinite reverse;
+  }
+  .profile-inner {
+    position: absolute; inset: 4px;
+    border-radius: 50%;
+    background: #080B12;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform .5s ease;
+  }
+  .profile-wrap:hover .profile-inner { transform: scale(1.03); }
+  .profile-inner img, .profile-inner svg { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ===== Nav ===== */
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content:''; position:absolute; left:0; bottom:-6px;
+    width:0; height:2px;
+    background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+    transition: width .3s ease;
+  }
+  .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+  /* ===== Tilt card ===== */
+  .tilt { transition: transform .4s ease; transform-style: preserve-3d; }
+
+  /* ===== Section heading underline ===== */
+  .section-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid rgba(59,130,246,.3);
+    border-radius: 999px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #3B82F6;
+    text-transform: uppercase;
+    background: rgba(59,130,246,.06);
+  }
+
+  /* ===== Timeline ===== */
+  .timeline-line {
+    position: absolute;
+    left: 20px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #3B82F6, #8B5CF6, transparent);
+  }
+  .timeline-dot {
+    position: absolute; left: 12px; top: 8px;
+    width: 18px; height: 18px; border-radius: 50%;
+    background: #080B12;
+    border: 2px solid #3B82F6;
+    box-shadow: 0 0 0 4px rgba(59,130,246,.15);
+  }
+  .timeline-dot::after {
+    content:''; position:absolute; inset:4px;
+    border-radius:50%;
+    background: #3B82F6;
+  }
+
+  /* ===== Skill card ===== */
+  .skill-card { transition: transform .4s ease, border-color .4s ease; }
+  .skill-card:hover { transform: translateY(-8px); }
+  .skill-icon-wrap {
+    width: 60px; height: 60px; border-radius: 16px;
+    background: linear-gradient(135deg, rgba(59,130,246,.15), rgba(139,92,246,.15));
+    display: flex; align-items: center; justify-content: center;
+    color: #3B82F6;
+    transition: all .4s ease;
+  }
+  .skill-card:hover .skill-icon-wrap {
+    background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+    color: #fff;
+    transform: rotate(-6deg) scale(1.08);
+  }
+
+  /* ===== Back to top ===== */
+  #backToTop {
+    position: fixed; bottom: 28px; right: 28px;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; z-index: 50;
+    opacity: 0; transform: translateY(20px);
+    transition: all .4s ease;
+    box-shadow: 0 10px 30px -8px rgba(59,130,246,.6);
+  }
+  #backToTop.show { opacity: 1; transform: translateY(0); }
+  #backToTop:hover { transform: translateY(-4px) scale(1.05); }
+
+  /* ===== Mobile menu ===== */
+  #mobileMenu {
+    transform: translateX(100%);
+    transition: transform .4s cubic-bezier(.2,.7,.2,1);
+  }
+  #mobileMenu.open { transform: translateX(0); }
+
+  /* ===== Form ===== */
+  .form-input {
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.1);
+    transition: all .3s ease;
+  }
+  .form-input:focus {
+    outline: none;
+    border-color: #3B82F6;
+    background: rgba(59,130,246,.05);
+    box-shadow: 0 0 0 3px rgba(59,130,246,.15);
+  }
+
+  /* ===== Reduced motion ===== */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: .01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .01ms !important;
+    }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ===== Scrollbar ===== */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #080B12; }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #3B82F6, #8B5CF6);
+    border-radius: 10px;
+  }
+
+  /* ===== Toast ===== */
+  .toast {
+    position: fixed; bottom: 30px; left: 50%;
+    transform: translateX(-50%) translateY(120%);
+    padding: 14px 22px;
+    border-radius: 12px;
+    background: rgba(16,24,39,.95);
+    border: 1px solid rgba(59,130,246,.4);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    transition: transform .5s cubic-bezier(.2,.7,.2,1);
+    box-shadow: 0 20px 50px -10px rgba(0,0,0,.5);
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* ===== Floating orbs decoration ===== */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: .25;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body class="relative">
+
+<!-- ===== Preloader ===== -->
+<div id="preloader">
+  <div class="loader-ring"></div>
+</div>
+
+<!-- ===== Particles Canvas ===== -->
+<canvas id="particles"></canvas>
+
+<!-- ===== Background blobs ===== -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+  <div class="blob bg-accent" style="width:500px;height:500px;top:-150px;left:-150px;"></div>
+  <div class="blob bg-accent2" style="width:600px;height:600px;top:40%;right:-200px;animation-delay:-6s;"></div>
+  <div class="blob bg-accent" style="width:400px;height:400px;bottom:-100px;left:30%;animation-delay:-12s;"></div>
+</div>
+
+<!-- ===== NAVIGATION ===== -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex items-center justify-between">
+    <a href="#home" class="flex items-center gap-2 group">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-accent to-accent2 flex items-center justify-center font-display font-bold text-lg shadow-lg shadow-accent/30 group-hover:scale-110 transition-transform">A</div>
+      <span class="font-display font-bold text-lg tracking-tight">Ahmed<span class="grad-text">Raza</span></span>
+    </a>
+
+    <div class="hidden lg:flex items-center gap-9">
+      <a href="#home" class="nav-link text-sm text-txt2 hover:text-white transition">Home</a>
+      <a href="#about" class="nav-link text-sm text-txt2 hover:text-white transition">About</a>
+      <a href="#education" class="nav-link text-sm text-txt2 hover:text-white transition">Education</a>
+      <a href="#skills" class="nav-link text-sm text-txt2 hover:text-white transition">Skills</a>
+      <a href="#projects" class="nav-link text-sm text-txt2 hover:text-white transition">Projects</a>
+      <a href="#goals" class="nav-link text-sm text-txt2 hover:text-white transition">Goals</a>
+      <a href="#contact" class="btn-primary px-5 py-2.5 rounded-full text-sm font-semibold">Contact Me</a>
+    </div>
+
+    <button id="menuBtn" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg border border-white/10" aria-label="Menu">
+      <i data-lucide="menu" class="w-5 h-5"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mobileMenu" class="fixed top-0 right-0 h-full w-80 max-w-[85%] bg-bg2/95 backdrop-blur-xl border-l border-white/10 z-[60] p-8">
+  <div class="flex items-center justify-between mb-10">
+    <span class="font-display font-bold text-lg">Menu</span>
+    <button id="closeMenu" class="w-10 h-10 flex items-center justify-center rounded-lg border border-white/10" aria-label="Close">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+  </div>
+  <div class="flex flex-col gap-6">
+    <a href="#home" class="mob-link text-lg font-semibold">Home</a>
+    <a href="#about" class="mob-link text-lg font-semibold">About</a>
+    <a href="#education" class="mob-link text-lg font-semibold">Education</a>
+    <a href="#skills" class="mob-link text-lg font-semibold">Skills</a>
+    <a href="#projects" class="mob-link text-lg font-semibold">Projects</a>
+    <a href="#goals" class="mob-link text-lg font-semibold">Goals</a>
+    <a href="#contact" class="btn-primary px-5 py-3 rounded-full text-center font-semibold mt-4">Contact Me</a>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="home" class="relative min-h-screen flex items-center pt-28 pb-20 px-6 lg:px-10 z-10">
+  <div class="absolute inset-0 bg-grid pointer-events-none"></div>
+  <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-14 items-center relative">
+
+    <div class="order-2 lg:order-1">
+      <div class="hero-fade d1 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 mb-6">
+        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+        <span class="text-xs text-txt2 tracking-wider uppercase">Available for opportunities</span>
+      </div>
+
+      <h1 class="hero-fade d2 font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight mb-5">
+        Hi, I'm <span class="grad-text">Ahmed Raza</span>.
+      </h1>
+
+      <div class="hero-fade d2 flex items-center gap-3 mb-6">
+        <span class="h-[2px] w-10 bg-gradient-to-r from-accent to-accent2"></span>
+        <p class="text-accent font-semibold text-lg" id="typed"></p>
+      </div>
+
+      <p class="hero-fade d3 text-txt2 text-lg leading-relaxed max-w-xl mb-9">
+        Passionate about technology, web development and creating modern digital experiences. Always learning, building and improving.
+      </p>
+
+      <div class="hero-fade d4 flex flex-wrap gap-4">
+        <a href="#projects" class="btn-primary px-7 py-3.5 rounded-full font-semibold flex items-center gap-2">
+          Explore My Portfolio
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="#contact" class="btn-ghost px-7 py-3.5 rounded-full font-semibold flex items-center gap-2">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          Contact Me
+        </a>
+      </div>
+
+      <div class="hero-fade d4 flex items-center gap-8 mt-12 pt-8 border-t border-white/10">
+        <div>
+          <div class="font-display text-2xl font-bold grad-text">MS Word</div>
+          <div class="text-xs text-txt2 uppercase tracking-wider mt-1">Specialist</div>
+        </div>
+        <div class="w-px h-10 bg-white/10"></div>
+        <div>
+          <div class="font-display text-2xl font-bold grad-text">Web Dev</div>
+          <div class="text-xs text-txt2 uppercase tracking-wider mt-1">Aspiring</div>
+        </div>
+        <div class="w-px h-10 bg-white/10"></div>
+        <div>
+          <div class="font-display text-2xl font-bold grad-text">Tech</div>
+          <div class="text-xs text-txt2 uppercase tracking-wider mt-1">Enthusiast</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
+      <div class="hero-fade d3 profile-wrap tilt" data-tilt>
+        <div class="profile-inner">
+          <!-- Replace this SVG with your real photo: <img src="your-photo.jpg" alt="Ahmed Raza" /> -->
+          <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-label="Ahmed Raza profile">
+            <defs>
+              <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#101827"/>
+                <stop offset="100%" stop-color="#080B12"/>
+              </linearGradient>
+              <linearGradient id="skinGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#e8c9a8"/>
+                <stop offset="100%" stop-color="#c9a583"/>
+              </linearGradient>
+              <linearGradient id="shirtGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="100%" stop-color="#d8dce5"/>
+              </linearGradient>
+              <linearGradient id="blazerGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#1e293b"/>
+                <stop offset="100%" stop-color="#0f172a"/>
+              </linearGradient>
+              <radialGradient id="glow" cx="50%" cy="40%" r="60%">
+                <stop offset="0%" stop-color="#3B82F6" stop-opacity=".35"/>
+                <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="320" height="320" fill="url(#bgGrad)"/>
+            <circle cx="160" cy="130" r="120" fill="url(#glow)"/>
+            <!-- Shoulders / blazer -->
+            <path d="M40,320 C40,240 90,210 160,210 C230,210 280,240 280,320 Z" fill="url(#blazerGrad)"/>
+            <!-- Shirt collar -->
+            <path d="M130,220 L160,250 L190,220 L180,280 L140,280 Z" fill="url(#shirtGrad)"/>
+            <!-- Neck -->
+            <rect x="140" y="175" width="40" height="45" rx="10" fill="url(#skinGrad)"/>
+            <!-- Head -->
+            <ellipse cx="160" cy="135" rx="55" ry="65" fill="url(#skinGrad)"/>
+            <!-- Hair -->
+            <path d="M108,115 Q110,70 160,68 Q210,70 212,115 Q212,95 195,88 Q180,75 160,78 Q140,75 125,88 Q108,95 108,115 Z" fill="#1a1a1a"/>
+            <!-- Eyes -->
+            <ellipse cx="140" cy="135" rx="4" ry="5" fill="#1a1a1a"/>
+            <ellipse cx="180" cy="135" rx="4" ry="5" fill="#1a1a1a"/>
+            <!-- Eyebrows -->
+            <path d="M130,122 Q140,118 150,122" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M170,122 Q180,118 190,122" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <!-- Nose -->
+            <path d="M160,145 Q155,160 160,168 Q165,165 163,160" stroke="#a88a6a" stroke-width="1.5" fill="none"/>
+            <!-- Smile -->
+            <path d="M145,175 Q160,185 175,175" stroke="#7a3a2a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <!-- Initials overlay -->
+            <text x="160" y="300" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="700" fill="#3B82F6" opacity=".6">AHMED RAZA</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-txt2">
+    <span class="text-[10px] uppercase tracking-[3px]">Scroll</span>
+    <div class="w-[1px] h-10 bg-gradient-to-b from-accent to-transparent"></div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="relative py-24 lg:py-32 px-6 lg:px-10 z-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="section-tag">About Me</span>
+      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-5 mb-4">Get to Know <span class="grad-text">Me Better</span></h2>
+      <p class="text-txt2 max-w-2xl mx-auto">A brief introduction about who I am, what I do, and where I'm headed.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-5 gap-8">
+      <div class="lg:col-span-3 glass rounded-3xl p-8 lg:p-10 reveal">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/20 to-accent2/20 flex items-center justify-center text-accent">
+            <i data-lucide="user" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display text-2xl font-bold">Who I Am</h3>
+        </div>
+        <div class="space-y-5 text-txt2 leading-relaxed">
+          <p>Hello! I'm <span class="text-white font-semibold">Ahmed Raza</span>, an ambitious and technology-driven learner from Pakistan with a strong interest in web development and digital innovation.</p>
+          <p>I have successfully completed my Matriculation in Biology. I have also completed an English Language course and developed skills in Microsoft Word, basic Excel, PowerPoint and beginner-level Web Development.</p>
+          <p>I enjoy exploring modern technologies, learning new digital skills and developing my technical knowledge. My ultimate goal is to become a professional Web Developer and create meaningful digital experiences.</p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
+        <div class="glass rounded-2xl p-6 reveal reveal-delay-1 tilt" data-tilt>
+          <div class="flex items-center gap-3 mb-3">
+            <i data-lucide="map-pin" class="w-5 h-5 text-accent"></i>
+            <span class="text-xs uppercase tracking-widest text-txt2">Location</span>
+          </div>
+          <p class="font-display text-lg font-semibold">Pakistan</p>
+        </div>
+        <div class="glass rounded-2xl p-6 reveal reveal-delay-2 tilt" data-tilt>
+          <div class="flex items-center gap-3 mb-3">
+            <i data-lucide="graduation-cap" class="w-5 h-5 text-accent2"></i>
+            <span class="text-xs uppercase tracking-widest text-txt2">Education</span>
+          </div>
+          <p class="font-display text-lg font-semibold">Matric — Biology</p>
+        </div>
+        <div class="glass rounded-2xl p-6 reveal reveal-delay-3 tilt" data-tilt>
+          <div class="flex items-center gap-3 mb-3">
+            <i data-lucide="languages" class="w-5 h-5 text-accent"></i>
+            <span class="text-xs uppercase tracking-widest text-txt2">Languages</span>
+          </div>
+          <p class="font-display text-lg font-semibold">English · Urdu</p>
+        </div>
+        <div class="glass rounded-2xl p-6 reveal reveal-delay-3 tilt" data-tilt>
+          <div class="flex items-center gap-3 mb-3">
+            <i data-lucide="heart" class="w-5 h-5 text-accent2"></i>
+            <span class="text-xs uppercase tracking-widest text-txt2">Interests</span>
+          </div>
+          <p class="font-display text-lg font-semibold">Web · Tech · Design</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EDUCATION ===== -->
+<section id="education" class="relative py-24 lg:py-32 px-6 lg:px-10 z-10">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="section-tag">Education</span>
+      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-5 mb-4">My <span class="grad-text">Learning Journey</span></h2>
+      <p class="text-txt2 max-w-2xl mx-auto">A timeline of the education and courses that have shaped my path.</p>
+    </div>
+
+    <div class="relative pl-14">
+      <div class="timeline-line"></div>
+
+      <div class="relative mb-12 reveal">
+        <div class="timeline-dot"></div>
+        <div class="glass rounded-2xl p-7 tilt" data-tilt>
+          <div class="flex flex-wrap items-center gap-3 mb-3">
+            <span class="px-3 py-1 rounded-full text-xs bg-accent/15 text-accent border border-accent/30">Completed</span>
+            <span class="text-xs text-txt2">Matriculation</span>
+          </div>
+          <h3 class="font-display text-2xl font-bold mb-2">Matriculation — Biology</h3>
+          <p class="text-txt2 leading-relaxed">Successfully completed secondary education with a focus on Biology, building a strong academic foundation and analytical thinking skills.</p>
+        </div>
+      </div>
+
+      <div class="relative mb-12 reveal">
+        <div class="timeline-dot"></div>
+        <div class="glass rounded-2xl p-7 tilt" data-tilt>
+          <div class="flex flex-wrap items-center gap-3 mb-3">
+            <span class="px-3 py-1 rounded-full text-xs bg-accent2/15 text-accent2 border border-accent2/30">Completed</span>
+            <span class="text-xs text-txt2">Language Course</span>
+          </div>
+          <h3 class="font-display text-2xl font-bold mb-2">English Language Course</h3>
+          <p class="text-txt2 leading-relaxed">Completed an English Language course to strengthen communication, reading and writing skills — essential for professional growth in the technology industry.</p>
+        </div>
+      </div>
+
+      <div class="relative reveal">
+        <div class="timeline-dot"></div>
+        <div class="glass rounded-2xl p-7 tilt" data-tilt>
+          <div class="flex flex-wrap items-center gap-3 mb-3">
+            <span class="px-3 py-1 rounded-full text-xs bg-green-500/15 text-green-400 border border-green-500/30">Ongoing</span>
+            <span class="text-xs text-txt2">Self Learning</span>
+          </div>
+          <h3 class="font-display text-2xl font-bold mb-2">Web Development & Digital Skills</h3>
+          <p class="text-txt2 leading-relaxed">Continuously learning modern web technologies, digital tools and professional skills through self-study and online resources.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills" class="relative py-24 lg:py-32 px-6 lg:px-10 z-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="section-tag">Skills</span>
+      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-5 mb-4">Technical <span class="grad-text">Skills</span></h2>
+      <p class="text-txt2 max-w-2xl mx-auto">Tools and technologies I am currently learning and building my skills in.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Skill 1 -->
+      <div class="skill-card glass rounded-2xl p-7 reveal tilt" data-tilt>
+        <div class="skill-icon-wrap mb-5"><i data-lucide="file-text" class="w-6 h-6"></i></div>
+        <h3 class="font-display text-xl font-bold mb-2">Microsoft Word</h3>
+        <p class="text-txt2 text-sm leading-relaxed">Document formatting, professional reports, letters and structured content creation.</p>
+      </div>
+      <!-- Skill 2 -->
+      <div class="skill-card glass rounded-2xl p-7 reveal reveal-delay-1 tilt" data-tilt>
+        <div class="skill-icon-wrap mb-5"><i data-lucide="table" class="w-6 h-6"></i></div>
+        <h3 class="font-display text-xl font-bold mb-2">Microsoft Excel <span class="text-xs text-txt2 font-normal">(Basic)</span></h3>
+        <p class="text-txt2 text-sm leading-relaxed">Basic spreadsheets, data entry, simple formulas and organizing information.</p>
+      </div>
+      <!-- Skill 3 -->
+      <div class="skill-card glass rounded-2xl p-7 reveal reveal-delay-2 tilt" data-tilt>
+        <div class="skill-icon-wrap mb-5"><i data-lucide="presentation" class="w-6 h-6"></i></div>
+        <h3 class="font-display text-xl font-bold mb-2">PowerPoint <span class="text-xs text-txt2 font-normal">(Basic)</span></h3>
+        <p class="text-txt2 text-sm leading-relaxed">Creating clean presentations with slides, text, images and basic layouts.</p>
+      </div>
+      <!-- Skill 4 -->
+      <div class="skill-card glass rounded-2xl p-7 reveal tilt" data-tilt>
+        <div class="skill-icon-wrap mb-5"><i data-lucide="code" class="w-6 h-6"></i></div>
+        <h3 class="font-display text-xl font-bold mb-2">Web Development <span class="text-xs text-txt2 font-normal">(Beginner)</span></h3>
+        <p class="text-txt2 text-sm leading-relaxed">Learning HTML, CSS and modern web development concepts to build digital experiences.</p>
+      </div>
+      <!-- Skill 5 -->
+      <div class="skill-card glass rounded-2xl p-7 reveal reveal-delay-1 tilt" data-tilt>
+        <div class="skill-icon-wrap mb-5"><i data-lucide="monitor" class="w-6 h-6"></i></div>
+        <h3 class="font-display text-xl font-bold mb-2">Computer Skills</h3>
+        <p class="text-txt2 text-sm leading-relaxed">Strong general computer literacy, file management and digital workflow skills.</p>
+      </div>
+      <!-- Skill 6 -->
+      <div class="skill-card glass rounded-2xl p-7 reveal reveal-delay-2 tilt" data-tilt>
+        <div class="skill-icon-wrap mb-5"><i data-lucide="cpu" class="w-6 h-6"></i></div>
+        <h3 class="font-display text-xl font-bold mb-2">Digital Technology</h3>
+        <p class="text-txt2 text-sm leading-relaxed">Exploring modern digital tools, online learning platforms and emerging technologies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects" class="relative py-24 lg:py-32 px-6 lg:px-10 z-10">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-14 reveal">
+      <span class="section-tag">Projects</span>
+      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-5 mb-4">My <span class="grad-text">Projects</span></h2>
+      <p class="text-txt2 max-w-2xl mx-auto">A showcase of the work I'm building as I grow as a developer.</p>
+    </div>
+
+    <div class="glass rounded-3xl p-10 lg:p-14 text-center reveal relative overflow-hidden">
+      <div class="orb bg-accent" style="width:260px;height:260px;top:-80px;right:-80px;"></div>
+      <div class="orb bg-accent2" style="width:220px;height:220px;bottom:-60px;left:-60px;"></div>
+
+      <div class="relative">
+        <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-accent/20 to-accent2/20 flex items-center justify-center">
+          <i data-lucide="rocket" class="w-9 h-9 text-accent"></i>
+        </div>
+        <h3 class="font-display text-2xl lg:text-3xl font-bold mb-4">The Journey Begins Here</h3>
+        <p class="text-txt2 max-w-xl mx-auto leading-relaxed mb-8">
+          Every professional journey starts with a first project. I'm currently learning and preparing to build exciting digital experiences.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <span class="px-4 py-2 rounded-full text-xs border border-white/10 bg-white/5">HTML</span>
+          <span class="px-4 py-2 rounded-full text-xs border border-white/10 bg-white/5">CSS</span>
+          <span class="px-4 py-2 rounded-full text-xs border border-white/10 bg-white/5">JavaScript</span>
+          <span class="px-4 py-2 rounded-full text-xs border border-white/10 bg-white/5">Learning…</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GOALS ===== -->
+<section id="goals" class="relative py-24 lg:py-32 px-6 lg:px-10 z-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="section-tag">Vision</span>
+      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-5 mb-4">My Vision & <span class="grad-text">Future Goals</span></h2>
+      <p class="text-txt2 max-w-2xl mx-auto">Where I'm headed and what drives me forward every day.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div class="reveal">
+        <div class="glass rounded-3xl p-8 lg:p-10 relative overflow-hidden">
+          <div class="orb bg-accent" style="width:200px;height:200px;top:-60px;right:-60px;"></div>
+          <p class="relative text-lg leading-relaxed text-txt2 mb-6">
+            My goal is to become a <span class="text-white font-semibold">professional Web Developer</span>, master modern technologies, build innovative websites and continuously improve my technical abilities.
+          </p>
+          <p class="relative text-txt2 leading-relaxed">
+            I believe in continuous learning, creativity and personal growth. Every line of code I write, every concept I learn, brings me one step closer to the professional I aspire to become.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div class="glass rounded-2xl p-6 reveal tilt" data-tilt>
+          <i data-lucide="target" class="w-7 h-7 text-accent mb-4"></i>
+          <h4 class="font-display font-bold text-lg mb-2">Master Web Dev</h4>
+          <p class="text-txt2 text-sm">Become a professional web developer with deep expertise.</p>
+        </div>
+        <div class="glass rounded-2xl p-6 reveal reveal-delay-1 tilt" data-tilt>
+          <i data-lucide="lightbulb" class="w-7 h-7 text-accent2 mb-4"></i>
+          <h4 class="font-display font-bold text-lg mb-2">Build Innovation</h4>
+          <p class="text-txt2 text-sm">Create meaningful, modern and innovative digital products.</p>
+        </div>
+        <div class="glass rounded-2xl p-6 reveal reveal-delay-2 tilt" data-tilt>
+          <i data-lucide="trending-up" class="w-7 h-7 text-accent mb-4"></i>
+          <h4 class="font-display font-bold text-lg mb-2">Continuous Growth</h4>
+          <p class="text-txt2 text-sm">Never stop learning, improving and exploring new technologies.</p>
+        </div>
+        <div class="glass rounded-2xl p-6 reveal reveal-delay-3 tilt" data-tilt>
+          <i data-lucide="globe" class="w-7 h-7 text-accent2 mb-4"></i>
+          <h4 class="font-display font-bold text-lg mb-2">Global Impact</h4>
+          <p class="text-txt2 text-sm">Contribute to the tech industry with quality work and creativity.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="relative py-24 lg:py-32 px-6 lg:px-10 z-10">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="section-tag">Contact</span>
+      <h2 class="font-display text-4xl lg:text-5xl font-bold mt-5 mb-4">Let's <span class="grad-text">Connect</span></h2>
+      <p class="text-txt2 max-w-2xl mx-auto">Have a question, opportunity or just want to say hello? I'd love to hear from you.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-5 gap-8">
+      <!-- Info -->
+      <div class="lg:col-span-2 space-y-5">
+        <div class="glass rounded-2xl p-6 flex items-center gap-4 reveal tilt" data-tilt>
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/20 to-accent2/20 flex items-center justify-center text-accent">
+            <i data-lucide="mail" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <p class="text-xs text-txt2 uppercase tracking-widest">Email</p>
+            <p class="font-semibold">ahmed.raza@example.com</p>
+          </div>
+        </div>
+        <div class="glass rounded-2xl p-6 flex items-center gap-4 reveal reveal-delay-1 tilt" data-tilt>
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/20 to-accent2/20 flex items-center justify-center text-accent">
+            <i data-lucide="map-pin" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <p class="text-xs text-txt2 uppercase tracking-widest">Location</p>
+            <p class="font-semibold">Pakistan</p>
+          </div>
+        </div>
+        <div class="glass rounded-2xl p-6 reveal reveal-delay-2">
+          <p class="text-xs text-txt2 uppercase tracking-widest mb-4">Follow Me</p>
+          <div class="flex gap-3">
+            <a href="#" aria-label="LinkedIn" class="w-11 h-11 rounded-xl border border-white/10 flex items-center justify-center hover:border-accent hover:text-accent transition">
+              <i data-lucide="linkedin" class="w-4 h-4"></i>
+            </a>
+            <a href="#" aria-label="GitHub" class="w-11 h-11 rounded-xl border border-white/10 flex items-center justify-center hover:border-accent hover:text-accent transition">
+              <i data-lucide="github" class="w-4 h-4"></i>
+            </a>
+            <a href="#" aria-label="Twitter" class="w-11 h-11 rounded-xl border border-white/10 flex items-center justify-center hover:border-accent hover:text-accent transition">
+              <i data-lucide="twitter" class="w-4 h-4"></i>
+            </a>
+            <a href="#" aria-label="Instagram" class="w-11 h-11 rounded-xl border border-white/10 flex items-center justify-center hover:border-accent hover:text-accent transition">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form id="contactForm" class="lg:col-span-3 glass rounded-3xl p-8 lg:p-10 reveal" novalidate>
+        <div class="grid sm:grid-cols-2 gap-5 mb-5">
+          <div>
+            <label class="text-xs text-txt2 uppercase tracking-widest mb-2 block">Name</label>
+            <input type="text" name="name" required class="form-input w-full px-4 py-3 rounded-xl text-white" placeholder="Your name" />
+          </div>
+          <div>
+            <label class="text-xs text-txt2 uppercase tracking-widest mb-2 block">Email</label>
+            <input type="email" name="email" required class="form-input w-full px-4 py-3 rounded-xl text-white" placeholder="you@example.com" />
+          </div>
+        </div>
+        <div class="mb-5">
+          <label class="text-xs text-txt2 uppercase tracking-widest mb-2 block">Subject</label>
+          <input type="text" name="subject" required class="form-input w-full px-4 py-3 rounded-xl text-white" placeholder="What's this about?" />
+        </div>
+        <div class="mb-6">
+          <label class="text-xs text-txt2 uppercase tracking-widest mb-2 block">Message</label>
+          <textarea name="message" required rows="5" class="form-input w-full px-4 py-3 rounded-xl text-white resize-none" placeholder="Write your message..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary w-full sm:w-auto px-8 py-3.5 rounded-full font-semibold flex items-center justify-center gap-2">
+          <span id="btnText">Send Message</span>
+          <i data-lucide="send" class="w-4 h-4" id="btnIcon"></i>
+        </button>
+        <p class="text-xs text-txt2 mt-4">No backend is configured. Form data is validated only — connect a service like Formspree or EmailJS to receive messages.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="relative border-t border-white/5 py-10 px-6 lg:px-10 z-10">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <p class="text-txt2 text-sm">© <span id="year"></span> Ahmed Raza. All rights reserved.</p>
+    <p class="text-txt2 text-sm">Designed & built with <span class="text-accent">♥</span> in Pakistan</p>
+  </div>
+</footer>
+
+<!-- ===== Back to top ===== -->
+<button id="backToTop" aria-label="Back to top">
+  <i data-lucide="arrow-up" class="w-5 h-5 text-white"></i>
+</button>
+
+<!-- ===== Toast ===== -->
+<div id="toast" class="toast text-sm"></div>
+
+<script>
+  // ===== Init icons =====
+  lucide.createIcons();
+
+  // ===== Year =====
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ===== Preloader =====
+  window.addEventListener('load', () => {
+    setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 500);
+  });
+
+  // ===== Typed effect =====
+  const phrases = [
+    'Aspiring Web Developer',
+    'MS Word Specialist',
+    'Technology Enthusiast',
+    'Lifelong Learner'
+  ];
+  const typedEl = document.getElementById('typed');
+  let pIdx = 0, cIdx = 0, deleting = false;
+  function type() {
+    const current = phrases[pIdx];
+    if (!deleting) {
+      typedEl.textContent = current.slice(0, ++cIdx);
+      typedEl.classList.add('typing-cursor');
+      if (cIdx === current.length) {
+        deleting = true;
+        setTimeout(type, 1800);
+        return;
+      }
+    } else {
+      typedEl.textContent = current.slice(0, --cIdx);
+      if (cIdx === 0) {
+        deleting = false;
+        pIdx = (pIdx + 1) % phrases.length;
+      }
+    }
+    setTimeout(type, deleting ? 40 : 80);
+  }
+  type();
+
+  // ===== Scroll reveal =====
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ===== Navbar scroll =====
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      navbar.classList.add('bg-bg/80', 'backdrop-blur-xl', 'border-b', 'border-white/5');
+    } else {
+      navbar.classList.remove('bg-bg/80', 'backdrop-blur-xl', 'border-b', 'border-white/5');
+    }
+  });
+
+  // ===== Active nav link =====
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY + 120;
+    sections.forEach(s => {
+      if (y >= s.offsetTop && y < s.offsetTop + s.offsetHeight) {
+        navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + s.id));
+      }
+    });
+  });
+
+  // ===== Mobile menu =====
+  const menuBtn = document.getElementById('menuBtn');
+  const closeMenu = document.getElementById('closeMenu');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+  closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  document.querySelectorAll('.mob-link, #mobileMenu .btn-primary').forEach(l => {
+    l.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // ===== Back to top =====
+  const btt = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    btt.classList.toggle('show', window.scrollY > 500);
+  });
+  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // ===== Tilt effect =====
+  document.querySelectorAll('[data-tilt]').forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      const r = el.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      el.style.transform = `perspective(900px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateZ(0)`;
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = '';
+    });
+  });
+
+  // ===== Particles =====
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function initParticles() {
+    particles = [];
+    const count = Math.min(70, Math.floor(window.innerWidth / 22));
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        r: Math.random() * 1.6 + 0.4,
+        c: Math.random() > 0.5 ? '59,130,246' : '139,92,246'
+      });
+    }
+  }
+  initParticles();
+  window.addEventListener('resize', initParticles);
+
+  function drawParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${p.c},.6)`;
+      ctx.fill();
+      // connect nearby
+      for (let j = i + 1; j < particles.length; j++) {
+        const q = particles[j];
+        const dx = p.x - q.x, dy = p.y - q.y;
+        const d = Math.sqrt(dx * dx + dy * dy);
+        if (d < 120) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = `rgba(59,130,246,${0.12 * (1 - d / 120)})`;
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(drawParticles);
+  }
+  drawParticles();
+
+  // ===== Contact form =====
+  const form = document.getElementById('contactForm');
+  const toast = document.getElementById('toast');
+  function showToast(msg, type = 'info') {
+    toast.textContent = msg;
+    toast.style.borderColor = type === 'error' ? 'rgba(239,68,68,.5)' : 'rgba(59,130,246,.5)';
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3500);
+  }
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const name = data.get('name').trim();
+    const email = data.get('email').trim();
+    const subject = data.get('subject').trim();
+    const message = data.get('message').trim();
+    if (!name || !email || !subject || !message) {
+      showToast('Please fill in all fields.', 'error');
+      return;
+    }
+    const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRx.test(email)) {
+      showToast('Please enter a valid email address.', 'error');
+      return;
+    }
+    // No backend configured — show honest message
+    showToast('✓ Form validated. Connect Formspree or EmailJS to receive messages.', 'info');
+    form.reset();
+  });
+</script>
+</body>
+</html>
